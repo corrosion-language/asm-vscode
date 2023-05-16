@@ -1,0 +1,36 @@
+{
+	"name": "asm-intel",
+	"displayName": "Assembly Intellisense",
+	"description": "Provides autocompletion and syntax highlighting for intel flavor x86 assembly",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.78.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "x86asm-intel",
+				"aliases": [
+					"x86assembly",
+					"assembly",
+					"x86asm",
+					"asm"
+				],
+				"extensions": [
+					".asm"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "x86asm-intel",
+				"scopeName": "source.x86asm-intel",
+				"path": "./syntaxes/asm.tmLanguage.json"
+			}
+		]
+	}
+}

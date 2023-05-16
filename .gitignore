@@ -1,0 +1,7 @@
+node_modules
+*.vsix
+test.asm
+grammar.hpp
+.vscode/
+.package-lock.json
+out/

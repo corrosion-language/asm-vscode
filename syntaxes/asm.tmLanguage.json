@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "asm",
+	"patterns": [
+		{ "include": "#directive" },
+		{ "include": "#comment" },
+		{ "include": "#string" },
+		{ "include": "#register" },
+		{ "include": "#literal-num" },
+		{ "include": "#label" },
+		{ "include": "#reserve" }
+	],
+	"repository": {
+		"directive": {
+			"name": "keyword.control",
+			"match": "section|global|extern|^\\..+ "
+		},
+		"comment": {
+			"name": "comment.line",
+			"match": ";.*$"
+		},
+		"string": {
+			"name": "string.quoted.double",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\."
+				}
+			]
+		},
+		"register": {
+			"name": "constant.language",
+			"match": "([ ,\\t]|^)([xyz]mm[0-9]{1,2})|(r[0-9]{1,2}[dwb]?)|([re]?(di|si|sp|bp)l?)|([re]?(a|c|d|b)[xlh])($|[ ,\\t])"
+		},
+		"literal-num": {
+			"name": "constant.numeric",
+			"match": "\\b([0-9]+|0x[0-9a-f]+)\\b"
+		},
+		"label": {
+			"name": "entity.name.function",
+			"match": ".+:"
+		},
+		"reserve": {
+			"name": "keyword.operator.new",
+			"match": "(d|res)[bwdq]"
+		}
+	},
+	"scopeName": "source.x86asm-intel"
+}
